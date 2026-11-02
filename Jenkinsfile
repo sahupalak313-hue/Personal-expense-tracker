@@ -3,7 +3,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout Source Code') {
             steps {
                 checkout scm
@@ -13,13 +12,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"C:\\Users\\PALAK SAHU\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Test Application') {
             steps {
-                bat 'python -m py_compile app.py'
+                bat '"C:\\Users\\PALAK SAHU\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile app.py'
                 echo 'Application syntax test passed'
             }
         }
