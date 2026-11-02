@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
+    }
+
     stages {
         stage('Checkout Source Code') {
             steps {
@@ -25,6 +29,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
+                bat 'docker info'
                 bat 'docker build -t personal-expense-tracker .'
             }
         }
@@ -42,3 +47,4 @@ pipeline {
         }
     }
 }
+
